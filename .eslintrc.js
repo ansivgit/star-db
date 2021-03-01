@@ -26,6 +26,7 @@ module.exports = {
     'comma-dangle': ['error', 'always-multiline'],
     'react/jsx-one-expression-per-line': ['off', { allow: 'literal' }],
     'react/destructuring-assignment': ['off', 'always'],
+    'no-underscore-dangle': ['error', { allowAfterThis: true }],
     // quotes: ['off', 'single'],
   },
 };

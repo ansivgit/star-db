@@ -1,0 +1,17 @@
+.header {
+  margin-top: .5rem;
+  padding: 1rem 0.5rem;
+}
+
+.header h3 {
+  margin-right: 4rem;
+}
+
+.header .nav-item {
+  margin: 0 1rem;
+}
+
+.header a:hover {
+  color: #00bc8c;
+  text-decoration: none;
+}
