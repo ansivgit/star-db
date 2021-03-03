@@ -15,5 +15,5 @@
 }
 
 .progress-bar {
-  animation: progress 2s linear forwards;
+  animation: progress 2s linear infinite;
 }
