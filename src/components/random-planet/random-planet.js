@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import SwapiService from '../../services/swapi-service';
-import { ProgressBar, ErrorIndicator } from '..';
+import ProgressBar from '../progress-bar/progress-bar';
+import ErrorIndicator from '../error-indicator/error-indicator';
 
 import './random-planet.css';
 
@@ -14,9 +15,9 @@ export default class RandomPlanet extends Component {
     error: false,
   }
 
-  constructor() {
-    super();
+  componentDidMount() {
     this.updatePlanet();
+    setInterval(this.updatePlanet, 4000);
   }
 
   onPlanetLoaded = (planet) => {
@@ -33,8 +34,8 @@ export default class RandomPlanet extends Component {
     });
   }
 
-  updatePlanet() {
-    const id = Math.round(Math.random() * 20) + 1;
+  updatePlanet = () => {
+    const id = Math.round(Math.random() * 17) + 2;
 
     this.swapiService
       .getItem('planets', id)

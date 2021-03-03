@@ -1,32 +1,41 @@
-/* eslint-disable react/prefer-stateless-function */
 /* eslint-disable react/sort-comp */
-import React from 'react';
+import React, { Component } from 'react';
 
 import {
   Header,
   RandomPlanet,
   ListItem,
   PersonDetails,
-} from '../index';
+} from '..';
 
 import './app.css';
 
-const App = () => {
-  return (
-    <div>
-      <Header />
-      <RandomPlanet />
+export default class App extends Component {
+  state = {
+    selectedPerson: null,
+  }
 
-      <div className="info-container container">
-        <div className="list-item-container col-md-4">
-          <ListItem />
-        </div>
-        <div className="person-details-container col-md-7">
-          <PersonDetails />
+  onPersonSelected = (id) => {
+    this.setState({
+      selectedPerson: id,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <RandomPlanet />
+
+        <div className="info-container container">
+          <div className="list-item-container col-md-4">
+            <ListItem onItemSelected={this.onPersonSelected} />
+          </div>
+          <div className="person-details-container col-md-7">
+            <PersonDetails personId={this.state.selectedPerson} />
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default App;
+    );
+  }
+}

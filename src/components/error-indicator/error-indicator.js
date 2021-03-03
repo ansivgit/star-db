@@ -11,9 +11,6 @@ const ErrorIndicator = () => {
       <span className="text-warning text-center">
         something has gone terribly wrong (but we already sent droids to fix it)
       </span>
-      {/* <span>
-        (but we already sent droids to fix it)
-      </span> */}
     </div>
   );
 };
