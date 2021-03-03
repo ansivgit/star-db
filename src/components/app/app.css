@@ -1,3 +1,9 @@
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
 .list-item-container {
   margin-top: 2rem;
 }

@@ -1,0 +1,19 @@
+@keyframes progress {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.progress.container {
+  margin-top: 67px;
+  margin-bottom: 67px;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.progress-bar {
+  animation: progress 2s linear forwards;
+}

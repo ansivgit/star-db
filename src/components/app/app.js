@@ -17,11 +17,11 @@ const App = () => {
       <Header />
       <RandomPlanet />
 
-      <div>
-        <div className="list-item-container container">
+      <div className="info-container container">
+        <div className="list-item-container col-md-4">
           <ListItem />
         </div>
-        <div className="person-details-container container">
+        <div className="person-details-container col-md-7">
           <PersonDetails />
         </div>
       </div>
