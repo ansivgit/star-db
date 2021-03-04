@@ -1,40 +1,36 @@
-/* eslint-disable react/sort-comp */
 import React, { Component } from 'react';
 
 import {
   Header,
   RandomPlanet,
-  ListItem,
-  PersonDetails,
 } from '..';
+import PeoplePage from '../people-page/people-page';
+import ErrorIndicator from '../error-indicator/error-indicator';
 
 import './app.css';
 
 export default class App extends Component {
   state = {
-    selectedPerson: null,
+    hasError: false,
   }
 
-  onPersonSelected = (id) => {
+  componentDidCatch() {
     this.setState({
-      selectedPerson: id,
+      hasError: true,
     });
   }
 
   render() {
+    if (this.state.hasError) {
+      return <ErrorIndicator />;
+    }
+
     return (
       <div>
         <Header />
         <RandomPlanet />
 
-        <div className="info-container container">
-          <div className="list-item-container col-md-4">
-            <ListItem onItemSelected={this.onPersonSelected} />
-          </div>
-          <div className="person-details-container col-md-7">
-            <PersonDetails personId={this.state.selectedPerson} />
-          </div>
-        </div>
+        <PeoplePage />
       </div>
     );
   }
