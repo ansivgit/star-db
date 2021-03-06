@@ -1,0 +1,16 @@
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.left-item-container {
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.right-item-container {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}

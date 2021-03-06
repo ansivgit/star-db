@@ -23,7 +23,7 @@ export default class ListItem extends Component {
   renderItems(arr) {
     return arr.map((item) => {
       const { id } = item;
-      const label = this.props.renderItem(item);
+      const label = this.props.children(item);
 
       return (
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions

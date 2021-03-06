@@ -4,6 +4,8 @@ import toLocaleStr from './to-locale-str';
 export default class SwapiService {
   _APIBASE = 'https://swapi.dev/api/';
 
+  _IMAGEBASE = 'https://starwars-visualguide.com/assets/img/';
+
   async getResource(url) {
     const res = await fetch(url);
 
@@ -42,6 +44,18 @@ export default class SwapiService {
   getStarship = async (id) => {
     const item = await this.getResource(`${this._APIBASE}starships/${id}`);
     return this._transformStarship(item);
+  }
+
+  getPersonImage = ({ id }) => {
+    return `${this._IMAGEBASE}characters/${id}.jpg`;
+  }
+
+  getPlanetImage = ({ id }) => {
+    return `${this._IMAGEBASE}planets/${id}.jpg`;
+  }
+
+  getStarshipImage = ({ id }) => {
+    return `${this._IMAGEBASE}starships/${id}.jpg`;
   }
 
   _extractId = (item) => {
