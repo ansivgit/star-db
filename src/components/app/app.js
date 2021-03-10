@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 import {
   Header,
-  RandomPlanet,
-  ListItem,
+  // RandomPlanet,
+  PersonList,
   PersonDetails,
+  Row,
+  ErrorBoundry,
 } from '..';
-import PeoplePage from '../people-page/people-page';
+// import PeoplePage from '../people-page/people-page';
 import ErrorIndicator from '../error-indicator/error-indicator';
 import SwapiService from '../../services/swapi-service';
 
@@ -30,26 +32,22 @@ export default class App extends Component {
       return <ErrorIndicator />;
     }
 
+    const list = <PersonList onItemSelected={() => { }} />;
+
+    const details = (
+      <PersonDetails itemId={5} />
+    );
+
     return (
-      <div>
-        <Header />
-        <RandomPlanet />
+      <ErrorBoundry>
+        <div>
+          <Header />
+          {/* <RandomPlanet /> */}
 
-        <PeoplePage />
+          <Row leftItem={list} rightItem={details} />
 
-        <div className="info-container container">
-          <div className="list-item-container col-md-4">
-            <ListItem
-              onItemSelected={this.onPersonSelected}
-              getData={this.swapiService.getAllPlanets}
-              renderItem={(item) => item.name}
-            />
-          </div>
-          <div className="person-details-container col-md-7">
-            <PersonDetails personId={this.state.selectedPerson} />
-          </div>
         </div>
-      </div>
+      </ErrorBoundry>
     );
   }
 }
