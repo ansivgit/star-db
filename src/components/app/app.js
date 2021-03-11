@@ -7,6 +7,7 @@ import {
   PersonDetails,
   Row,
   ErrorBoundry,
+  SwapiServiceProvider,
 } from '..';
 // import PeoplePage from '../people-page/people-page';
 import ErrorIndicator from '../error-indicator/error-indicator';
@@ -40,13 +41,15 @@ export default class App extends Component {
 
     return (
       <ErrorBoundry>
-        <div>
-          <Header />
-          {/* <RandomPlanet /> */}
+        <SwapiServiceProvider value={this.swapiService}>
+          <div>
+            <Header />
+            {/* <RandomPlanet /> */}
 
-          <Row leftItem={list} rightItem={details} />
+            <Row leftItem={list} rightItem={details} />
 
-        </div>
+          </div>
+        </SwapiServiceProvider>
       </ErrorBoundry>
     );
   }
