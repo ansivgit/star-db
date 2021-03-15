@@ -15,3 +15,8 @@
   color: #00bc8c;
   text-decoration: none;
 }
+
+.btn-change-service {
+  margin: 0 1rem;
+  padding: 0 0.5rem;
+}

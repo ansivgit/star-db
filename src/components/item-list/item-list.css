@@ -1,7 +1,7 @@
-.item-item .list-group-item-action {
+.item-list .list-group-item-action {
   cursor: pointer;
 }
 
-.item-item .list-group-item-action:hover {
+.item-list .list-group-item-action:hover {
   color: #00bc8c;
 }
