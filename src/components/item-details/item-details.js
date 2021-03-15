@@ -62,15 +62,7 @@ export default class ItemDetails extends Component {
       return <span>Select smth from a List</span>;
     }
 
-    const {
-      // id,
-      name,
-      // gender,
-      // birthYear,
-      // height,
-      // hairColor,
-      // eyeColor,
-    } = item;
+    const { name } = item;
 
     return (
       <div className="item-details card mb-3">

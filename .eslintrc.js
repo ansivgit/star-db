@@ -27,6 +27,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': ['off', { allow: 'literal' }],
     'react/destructuring-assignment': ['off', 'always'],
     'no-underscore-dangle': ['error', { allowAfterThis: true }],
+    'react/jsx-props-no-spreading': ['warn', { custom: 'ignore' }],
     // quotes: ['off', 'single'],
   },
 };

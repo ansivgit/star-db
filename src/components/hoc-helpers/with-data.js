@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { Component } from 'react';
 import ProgressBar from '../progress-bar/progress-bar';
 
