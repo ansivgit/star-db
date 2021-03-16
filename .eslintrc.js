@@ -28,6 +28,7 @@ module.exports = {
     'react/destructuring-assignment': ['off', 'always'],
     'no-underscore-dangle': ['error', { allowAfterThis: true }],
     'react/jsx-props-no-spreading': ['warn', { custom: 'ignore' }],
+    'react/static-property-placement': ['off'],
     // quotes: ['off', 'single'],
   },
 };
