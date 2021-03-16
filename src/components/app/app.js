@@ -3,13 +3,9 @@ import React, { Component } from 'react';
 import {
   Header,
   RandomPlanet,
-  PersonList,
-  PersonDetails,
-  PlanetList,
-  PlanetDetails,
-  StarshipList,
-  StarshipDetails,
-  Row,
+  PeoplePage,
+  PlanetPage,
+  StarshipPage,
   ErrorBoundry,
   SwapiServiceProvider,
 } from '..';
@@ -54,20 +50,9 @@ export default class App extends Component {
             <Header onServiceChange={this.onServiceChange} />
             <RandomPlanet />
 
-            <Row
-              leftItem={<PersonList onItemSelected={() => { }} />}
-              rightItem={<PersonDetails itemId={11} />}
-            />
-
-            <Row
-              leftItem={<PlanetList onItemSelected={() => { }} />}
-              rightItem={<PlanetDetails itemId={5} />}
-            />
-
-            <Row
-              leftItem={<StarshipList onItemSelected={() => { }} />}
-              rightItem={<StarshipDetails itemId={9} />}
-            />
+            <PeoplePage />
+            <PlanetPage />
+            <StarshipPage />
 
           </div>
         </SwapiServiceProvider>
