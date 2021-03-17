@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import ErrorIndicator from '../error-indicator/error-indicator';
 
@@ -27,3 +27,7 @@ export default class ErrorBoundry extends Component {
     return this.props.children;
   }
 }
+
+ErrorBoundry.propTypes = {
+  children: PropTypes.node.isRequired,
+};

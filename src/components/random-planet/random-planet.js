@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import SwapiService from '../../services/swapi-service';
 import ProgressBar from '../progress-bar/progress-bar';
 import ErrorIndicator from '../error-indicator/error-indicator';
@@ -12,15 +13,7 @@ export default class RandomPlanet extends Component {
   };
 
   static propTypes = {
-    updateInterval: (props, propName, componentName) => {
-      const value = props[propName];
-
-      if (typeof value === 'number' && !Number.isNaN(value)) {
-        return null;
-      }
-
-      return new TypeError(`${componentName}: ${propName} must be a number`);
-    },
+    updateInterval: PropTypes.number,
   };
 
   swapiService = new SwapiService();
@@ -122,4 +115,14 @@ const PlanetView = ({ planet }) => {
       </div>
     </React.Fragment>
   );
+};
+
+PlanetView.propTypes = {
+  planet: PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    population: PropTypes.string,
+    rotationPeriod: PropTypes.string,
+    diameter: PropTypes.string,
+  }).isRequired,
 };

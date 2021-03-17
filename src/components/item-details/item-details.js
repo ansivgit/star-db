@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import SwapiService from '../../services/swapi-service';
 
 import './item-details.css';
@@ -13,6 +14,18 @@ const Record = ({ item, field, label }) => {
       </span>
     </li>
   );
+};
+
+Record.defaultProps = {
+  item: null,
+  field: null,
+  label: null,
+};
+
+Record.propTypes = {
+  item: PropTypes.objectOf(PropTypes.string),
+  field: PropTypes.string,
+  label: PropTypes.string,
 };
 
 export { Record };
@@ -86,3 +99,17 @@ export default class ItemDetails extends Component {
     );
   }
 }
+
+ItemDetails.defaultProps = {
+  itemId: null,
+  getData: null,
+  getImageUrl: null,
+  children: null,
+};
+
+ItemDetails.propTypes = {
+  itemId: PropTypes.string,
+  getData: PropTypes.func,
+  getImageUrl: PropTypes.func,
+  children: PropTypes.node,
+};

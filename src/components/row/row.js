@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './row.css';
 
@@ -14,6 +14,11 @@ const Row = ({ leftItem, rightItem }) => {
       </div>
     </div>
   );
+};
+
+Row.propTypes = {
+  leftItem: PropTypes.node.isRequired,
+  rightItem: PropTypes.node.isRequired,
 };
 
 export default Row;
