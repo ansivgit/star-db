@@ -5,7 +5,7 @@ import './row.css';
 
 const Row = ({ leftItem, rightItem }) => {
   return (
-    <div className="info-container container">
+    <div className="info-container">
       <div className="left-item-container col-md-4">
         {leftItem}
       </div>

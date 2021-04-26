@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import {
   Header,
@@ -8,6 +9,7 @@ import {
   StarshipPage,
   ErrorBoundry,
   SwapiServiceProvider,
+  StarshipDetails,
 } from '..';
 import ErrorIndicator from '../error-indicator/error-indicator';
 import SwapiService from '../../services/swapi-service';
@@ -46,15 +48,30 @@ export default class App extends Component {
     return (
       <ErrorBoundry>
         <SwapiServiceProvider value={this.state.swapiService}>
-          <div>
-            <Header onServiceChange={this.onServiceChange} />
-            <RandomPlanet />
+          <Router>
+            <div className="container">
 
-            <PeoplePage />
-            <PlanetPage />
-            <StarshipPage />
+              <Header onServiceChange={this.onServiceChange} />
+              <RandomPlanet />
 
-          </div>
+              <Route
+                path="/"
+                render={() => <h2 className="my-3">Welcome to StarDB</h2>}
+                exact
+              />
+              <Route path="/people/:id?" component={PeoplePage} />
+              <Route path="/planets" component={PlanetPage} />
+              <Route path="/starships" exact component={StarshipPage} />
+              <Route
+                path="/starships/:id"
+                render={({ match }) => {
+                  const { id } = match.params;
+                  return <StarshipDetails itemId={id} />;
+                }}
+              />
+
+            </div>
+          </Router>
         </SwapiServiceProvider>
       </ErrorBoundry>
     );

@@ -1,26 +1,27 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './header.css';
 
 const Header = ({ onServiceChange }) => {
   return (
-    <div className="header container d-flex">
+    <div className="header d-flex">
       <h3>
-        <a href="#">
+        <Link to="/">
           Star DB
-        </a>
+        </Link>
       </h3>
       <ul className="d-flex nav nav-pills">
         <li className="nav-item">
-          <a className="nav-link" href="#">People</a>
+          <Link to="/people/" className="nav-link">People</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Planets</a>
+          <Link to="/planets/" className="nav-link">Planets</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Starships</a>
+          <Link to="/starships/" className="nav-link">Starships</Link>
         </li>
       </ul>
       <button

@@ -1,28 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-import {
-  Row,
-  StarshipList,
-  StarshipDetails,
-} from '..';
+import { StarshipList } from '..';
 
-export default class StarshipPage extends Component {
-  state = {
-    selectedItem: null,
-  };
+const StarshipPage = ({ history }) => {
+  return (
+    <StarshipList
+      onItemSelected={(id) => {
+        history.push(id);
+      }}
+    />
+  );
+};
 
-  onItemSelected = (selectedItem) => {
-    this.setState({ selectedItem });
-  };
+StarshipPage.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+};
 
-  render() {
-    const { selectedItem } = this.state;
-
-    return (
-      <Row
-        leftItem={<StarshipList onItemSelected={this.onItemSelected} />}
-        rightItem={<StarshipDetails itemId={selectedItem} />}
-      />
-    );
-  }
-}
+export default withRouter(StarshipPage);

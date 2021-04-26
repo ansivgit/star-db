@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import {
   Row,
@@ -6,23 +8,18 @@ import {
   PersonDetails,
 } from '..';
 
-export default class PeoplePage extends Component {
-  state = {
-    selectedItem: null,
-  };
+const PeoplePage = ({ history, match }) => {
+  return (
+    <Row
+      leftItem={(<PersonList onItemSelected={(id) => history.push(id)} />)}
+      rightItem={<PersonDetails itemId={match.params.id} />}
+    />
+  );
+};
 
-  onItemSelected = (selectedItem) => {
-    this.setState({ selectedItem });
-  };
+PeoplePage.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  match: PropTypes.shape({ params: PropTypes.shape.isRequired }).isRequired,
+};
 
-  render() {
-    const { selectedItem } = this.state;
-
-    return (
-      <Row
-        leftItem={<PersonList onItemSelected={this.onItemSelected} />}
-        rightItem={<PersonDetails itemId={selectedItem} />}
-      />
-    );
-  }
-}
+export default withRouter(PeoplePage);

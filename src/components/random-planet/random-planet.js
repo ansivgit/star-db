@@ -68,7 +68,7 @@ export default class RandomPlanet extends Component {
     const content = hasData ? <PlanetView planet={planet} /> : null;
 
     return (
-      <div className="random-planet card container rounded">
+      <div className="random-planet card rounded mb-3">
         {progress}
         {errorMessage}
         {content}

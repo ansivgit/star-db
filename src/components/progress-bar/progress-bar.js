@@ -6,7 +6,7 @@ import './progress-bar.css';
 
 const ProgressBar = () => {
   return (
-    <div className="progress container">
+    <div className="progress">
       <div
         className="progress-bar progress-bar-striped progress-bar-animated"
         role="progressbar"
