@@ -7,6 +7,8 @@ export { default as ItemDetails, Record } from './item-details/item-details';
 export { default as PeoplePage } from './pages/people-page';
 export { default as PlanetPage } from './pages/planet-page';
 export { default as StarshipPage } from './pages/starship-page';
+export { default as SecretPage } from './pages/secret-page';
+export { default as LoginPage } from './pages/login-page';
 export { default as ErrorBoundry } from './error-boundry/error-boundry';
 export { default as withData } from './hoc-helpers/with-data';
 export { default as withSwapiService } from './hoc-helpers/with-swapi-service';
